@@ -30,4 +30,4 @@ echo 'net.ipv4.ip_forward = 1' >> /etc/sysctl.conf
 /usr/sbin/iptables -A FORWARD -i eth0 -o tun+ -j ACCEPT
 /usr/sbin/iptables -t nat -A POSTROUTING -o tun+ -j MASQUERADE
 
-/usr/sbin/openvpn --config /etc/openvpn/vpn.conf
+/usr/sbin/openvpn --config /etc/openvpn/${VPNCONF:-vpn.conf}

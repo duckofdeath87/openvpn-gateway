@@ -1,6 +1,7 @@
 #!/bin/bash
 set -m
 /usr/sbin/openvpn --config /etc/openvpn/${VPNCONF:-vpn.conf} &
+sleep 5
 
 # loopback
 /usr/sbin/iptables -A INPUT -i lo -j ACCEPT

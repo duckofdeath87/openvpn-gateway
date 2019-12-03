@@ -14,4 +14,4 @@ echo 'net.ipv4.ip_forward = 1' >> /etc/sysctl.conf
 /usr/sbin/iptables -A FORWARD -i eth0 -o tun+ -m comment --comment "LAN out to VPN" -j ACCEPT
 /usr/sbin/iptables -t nat -A POSTROUTING -o tun+ -j MASQUERAD
 
-/usr/sbin/openvpn --config /etc/openvpn/
+/usr/sbin/openvpn --config /etc/openvpn/vpn.conf

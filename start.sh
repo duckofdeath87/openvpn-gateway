@@ -1,9 +1,5 @@
 #!/bin/bash
 
-echo 'net.ipv4.ip_forward = 1' >> /etc/sysctl.conf
-
-/sbin/sysctl -p
-
 # loopback
 /usr/sbin/iptables -A INPUT -i lo -j ACCEPT
 /usr/sbin/iptables -A OUTPUT -o lo -j ACCEPT

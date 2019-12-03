@@ -1,4 +1,7 @@
 #!/bin/bash
+set -m
+/usr/sbin/openvpn --config /etc/openvpn/${VPNCONF:-vpn.conf} &
+sleep 5
 
 # loopback
 /usr/sbin/iptables -A INPUT -i lo -j ACCEPT
@@ -28,4 +31,4 @@
 /usr/sbin/iptables -A FORWARD -i eth0 -o tun0 -j ACCEPT
 /usr/sbin/iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE
 
-/usr/sbin/openvpn --config /etc/openvpn/${VPNCONF:-vpn.conf}
+fg
